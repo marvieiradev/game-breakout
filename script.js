@@ -45,7 +45,7 @@ function mouseMoveHandler(e) {
 function drawPaddle() {
     ctx.beginPath();
     ctx.roundRect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight, 30);
-    ctx.fillStyle = '#333';
+    ctx.fillStyle = '#aaa';
     ctx.fill();
     ctx.closePath();
 }
@@ -54,7 +54,7 @@ function drawPaddle() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '#333';
+    ctx.fillStyle = '#fff';
     ctx.fill();
     ctx.closePath();
 }
@@ -70,7 +70,29 @@ function drawBricks() {
                 bricks[col][row].y = brickY;
                 ctx.beginPath();
                 ctx.roundRect(brickX, brickY, brickWidth, brickHeight, 30);
-                ctx.fillStyle = '#333';
+
+                switch (row) {
+                    case 0:
+                        ctx.fillStyle = '#fb0505';
+                        break;
+
+                    case 1:
+                        ctx.fillStyle = '#fb7607';
+                        break;
+
+                    case 2:
+                        ctx.fillStyle = '#00b300';
+                        break;
+
+                    case 3:
+                        ctx.fillStyle = '#0046ce';
+                        break;
+
+                    case 4:
+                        ctx.fillStyle = '#9900c9';
+                        break;
+                }
+
                 ctx.fill();
                 ctx.closePath();
             }
@@ -81,8 +103,8 @@ function drawBricks() {
 //Desenhar e mostrar a pontuação
 function trackScore() {
     ctx.font = 'bold 16px sans-serif';
-    ctx.fillStyle = '#333';
-    ctx.fillText('Score: ' + score, 8, 24);
+    ctx.fillStyle = '#fff';
+    ctx.fillText('Score: ' + score, 32, 20);
 }
 
 //Verifica se a bola tocou no bloco
