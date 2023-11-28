@@ -70,34 +70,39 @@ function drawBricks() {
                 bricks[col][row].y = brickY;
                 ctx.beginPath();
                 ctx.roundRect(brickX, brickY, brickWidth, brickHeight, 30);
-
-                switch (row) {
-                    case 0:
-                        ctx.fillStyle = '#fb0505';
-                        break;
-
-                    case 1:
-                        ctx.fillStyle = '#fb7607';
-                        break;
-
-                    case 2:
-                        ctx.fillStyle = '#00b300';
-                        break;
-
-                    case 3:
-                        ctx.fillStyle = '#0046ce';
-                        break;
-
-                    case 4:
-                        ctx.fillStyle = '#9900c9';
-                        break;
-                }
-
+                ctx.fillStyle = setBickColor(row);
                 ctx.fill();
                 ctx.closePath();
             }
         }
     }
+}
+
+//Define as cores dos blocos
+function setBickColor(num) {
+    let color
+    switch (num) {
+        case 0:
+            color = '#fb0505';
+            break;
+
+        case 1:
+            color = '#fb7607';
+            break;
+
+        case 2:
+            color = '#00b300';
+            break;
+
+        case 3:
+            color = '#0046ce';
+            break;
+
+        case 4:
+            color = '#9900c9';
+            break;
+    }
+    return color;
 }
 
 //Desenhar e mostrar a pontuação
